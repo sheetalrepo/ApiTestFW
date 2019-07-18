@@ -1,7 +1,7 @@
 package com.data.pojos;
 /**
+ * POJO for single photo
  * http://jsonplaceholder.typicode.com/photos/1
- * 
  * 
  */
 public class SinglePhoto {

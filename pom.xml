@@ -15,12 +15,6 @@
 	</properties>
 
 	<dependencies>
-		<dependency>
-			<groupId>org.testng</groupId>
-			<artifactId>testng</artifactId>
-			<version>${testng.version}</version>
-			<scope>test</scope>
-		</dependency>
 		<!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
 		<dependency>
 			<groupId>io.rest-assured</groupId>
@@ -44,6 +38,14 @@
 			<artifactId>json-schema-validator</artifactId>
 			<version>${restassured.version}</version>
 		</dependency>
-		
+
+
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>${testng.version}</version>
+			<scope>test</scope>
+		</dependency>
+
 	</dependencies>
 </project>

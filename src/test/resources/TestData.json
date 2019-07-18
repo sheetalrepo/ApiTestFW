@@ -1,0 +1,5 @@
+{
+	"testSinglePhoto1" : [{ "photoId":"1", "category":"smoke" } , { "photoId":"2", "category":"regression"}, { "photoId":"3", "category":"regression"} , { "photoId":"4" , "category":"regression"}],
+	"testSinglePhoto2" : [{ "photoId":"10", "category":"smoke" } , { "photoId":"20", "category":"regression"}, { "photoId":"30", "category":"regression"}],
+	"testSingleAlbum" : [{ "albumId":"50", "category":"smoke" } , { "albumId":"51", "category":"regression"}]
+}
