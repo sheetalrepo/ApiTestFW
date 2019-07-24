@@ -1,11 +1,12 @@
-package com.data.pojos;
+package com.response.pojos;
 
 import java.util.List;
 
 /**
+ * POJOs for API Response   http://<domain>/photos
  * http://jsonplaceholder.typicode.com/photos
  * 
- * shows complete list of albums and photos
+ * POJOs required to have actual representations of our particular API's response
  */
 public class AllPhotos {
 

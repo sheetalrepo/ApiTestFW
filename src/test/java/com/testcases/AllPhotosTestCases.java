@@ -1,4 +1,4 @@
-package com.testcases.photos;
+package com.testcases;
 
 import java.util.List;
 import java.util.Map;
@@ -9,8 +9,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.businesslayer.AllPhotosBusinessLogic;
-import com.data.pojos.AllPhotos;
-import com.data.pojos.SinglePhoto;
+import com.response.pojos.AllPhotos;
+import com.response.pojos.SinglePhoto;
 
 public class AllPhotosTestCases {
 
