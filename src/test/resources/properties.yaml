@@ -1,0 +1,5 @@
+--- 
+apis: 
+  homeurl: "http://jsonplaceholder.typicode.com"
+  photos: /photos
+  albumid: /photos/?albumId=

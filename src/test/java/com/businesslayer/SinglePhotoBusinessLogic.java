@@ -3,8 +3,10 @@ package com.businesslayer;
 import static io.restassured.RestAssured.when;
 import static io.restassured.path.json.JsonPath.from;
 
-import com.response.pojos.SinglePhoto;
+import org.apache.log4j.Logger;
 
+import com.data.PropertyFileReader;
+import com.response.pojos.SinglePhoto;
 import io.restassured.response.Response;
 
 
@@ -16,10 +18,10 @@ import io.restassured.response.Response;
  *
  */
 public class SinglePhotoBusinessLogic {
+	private static final Logger LOGGER = Logger.getLogger(SinglePhotoBusinessLogic.class);
 
-	// TODOs: read from property files
-	static String baseUrl = "http://jsonplaceholder.typicode.com";
-
+	
+	
 	
 	/*
 	 * Extract data as Response object
@@ -27,12 +29,19 @@ public class SinglePhotoBusinessLogic {
 	 * Populate respective Response POJOs
 	 */
 	public static SinglePhoto getSinglePhotoDataFor(String id) {
-		String url = baseUrl + "/photos/" + id;
-		System.out.println("URL to be hit:" + url);
+		String baseURL = PropertyFileReader.getPropertyData().getApis().get("homeurl");
+		String photos = PropertyFileReader.getPropertyData().getApis().get("photos");
+		String url = baseURL+photos+"/"+id;
+		
+		LOGGER.info("URL to be hit:" + url);
+		
+		//String url = baseUrl + "/photos/" + id;
+		//System.out.println("URL to be hit:" + url);
 		
 		Response response = when().get(url);
 		SinglePhoto singlePhoto = response.getBody().as(SinglePhoto.class);
-		System.out.println(singlePhoto);
+		//System.out.println(singlePhoto);
+		LOGGER.info("URL to be hit:" + singlePhoto);
 		return singlePhoto;
 	}
 	
@@ -47,8 +56,12 @@ public class SinglePhotoBusinessLogic {
 	 *       This is a bit lengthy compared to above	
 	 */
 	public static SinglePhoto getSinglePhotoDataForUsingString(String id) {
-		String url = baseUrl + "/photos/" + id;
-		System.out.println("URL to be hit:" + url);
+		String baseURL = PropertyFileReader.getPropertyData().getApis().get("homeurl");
+		String photos = PropertyFileReader.getPropertyData().getApis().get("photos");
+		String url = baseURL+photos+"/"+id;
+		//String url = baseUrl + "/photos/" + id;
+		//System.out.println("URL to be hit:" + url);
+		LOGGER.info("URL to be hit:" + url);
 		String responseAsString = when().get(url).then().statusCode(200).extract().asString();
 
 		SinglePhoto singlePhoto = new SinglePhoto();
@@ -60,6 +73,8 @@ public class SinglePhotoBusinessLogic {
 
 		return singlePhoto;
 	}
+	
+	
 	
 	
 	

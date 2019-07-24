@@ -1,18 +1,20 @@
 package com.testcases;
 
 import java.util.List;
+
+import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import com.businesslayer.AllPhotosBusinessLogic;
 import com.businesslayer.SinglePhotoBusinessLogic;
 import com.data.DataProviderClass;
 import com.data.pojos.TestDataForAlbumApi;
-import com.data.pojos.TestDataForSinglePhotoApi;
 import com.response.pojos.AllPhotos;
 import com.response.pojos.SinglePhoto;
 
 public class SingleAlbumTestCases {
 
+	
 //	@Test
 //	public void testSetOfPhotosForAlbumId() {
 //		AllPhotos allPhotosForAlbumId = AllPhotosBusinessLogic.getAllPhotosForAlbumId("30");

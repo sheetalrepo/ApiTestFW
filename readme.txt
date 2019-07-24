@@ -6,6 +6,4 @@ http://jsonplaceholder.typicode.com/photos/1		        |  1 id have 1 title, 1 ur
 
 
 #TODOs:
-read urls, path from prop files
-logger implementation
 different data provider for different rows

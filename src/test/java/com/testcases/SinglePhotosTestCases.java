@@ -1,13 +1,5 @@
 package com.testcases;
 
-import static io.restassured.RestAssured.get;
-import static io.restassured.RestAssured.given;
-import static io.restassured.RestAssured.when;
-import static io.restassured.path.json.JsonPath.from;
-import static org.hamcrest.Matchers.greaterThan;
-
-import java.util.List;
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -16,8 +8,11 @@ import com.data.DataProviderClass;
 import com.data.pojos.TestDataForSinglePhotoApi;
 import com.response.pojos.SinglePhoto;
 
+import org.apache.log4j.Logger;
 
 public class SinglePhotosTestCases {
+	
+	 private static final Logger LOGGER = Logger.getLogger(SinglePhotosTestCases.class);
 
 //	@Test(dataProvider="JsonDataProvider", dataProviderClass=DataProviderClass.class)
 //	public void testSinglePhoto1(SinglePhoto photoId) {
@@ -53,11 +48,9 @@ public class SinglePhotosTestCases {
 	
 	@Test(dataProvider = "PhotoApiObjSet1", dataProviderClass = DataProviderClass.class)
 	public void testSinglePhotoCase1(TestDataForSinglePhotoApi testDataForSinglePhotoApi) {
-		//System.out.println(testDataForSinglePhotoApi.getTestCaseName()+" || "+testDataForSinglePhotoApi.getPhotoId()+" || "+testDataForSinglePhotoApi.getCategory());
 		String id = testDataForSinglePhotoApi.getPhotoId();
 		SinglePhoto singlePhotoActualData = SinglePhotoBusinessLogic.getSinglePhotoDataFor(id);
-		System.out.println(singlePhotoActualData);
-
+		LOGGER.info(singlePhotoActualData);
 		Assert.assertEquals(singlePhotoActualData.getId(), id);
 		Assert.assertEquals(singlePhotoActualData.getAlbumId(), "1");
 		Assert.assertTrue(singlePhotoActualData.getUrl().startsWith("https://via.placeholder.com/600/"));
@@ -66,18 +59,17 @@ public class SinglePhotosTestCases {
 	
 	@Test(dataProvider = "PhotoApiSet1", dataProviderClass = DataProviderClass.class)
 	public void testSinglePhotoCase1_Type2(String testCaseName, String id, String category) {
-		System.out.println(testCaseName+" | "+id+" | "+category);
+		LOGGER.info(testCaseName+" | "+id+" | "+category);
+		
 	}
-	
-	
 	
 	
 	@Test(dataProvider = "PhotoApiObjSet2", dataProviderClass = DataProviderClass.class)
 	public void testSinglePhotoCase2(TestDataForSinglePhotoApi testDataForSinglePhotoApi) {
 		String id = testDataForSinglePhotoApi.getPhotoId();
 		SinglePhoto singlePhotoActualData = SinglePhotoBusinessLogic.getSinglePhotoDataFor(id);
-		System.out.println(singlePhotoActualData);
-
+		LOGGER.info(singlePhotoActualData);
+		
 		Assert.assertEquals(singlePhotoActualData.getId(), id);
 		Assert.assertEquals(singlePhotoActualData.getAlbumId(), "5");
 		Assert.assertTrue(singlePhotoActualData.getUrl().startsWith("https://via.placeholder.com/600/"));
