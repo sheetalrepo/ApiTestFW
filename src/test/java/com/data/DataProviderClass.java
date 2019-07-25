@@ -1,40 +1,28 @@
 package com.data;
 
 import java.util.List;
-
 import org.testng.annotations.DataProvider;
-
-import com.data.pojos.TestDataBaseClass;
 import com.data.pojos.TestDataForAlbumApi;
 import com.data.pojos.TestDataForSinglePhotoApi;
-import com.response.pojos.SinglePhoto;
 
 /**
  * DataProvider class will take data from TestDataBaseClass's POJOs
- * 
  * TestDataBaseClass's pojos can be populated using json, csv, excel etc
+ * 
+ * In this design for every row in testdata.json we are creating a separate DataProvider
+ * 
+ * @author Sheetal Singh
+ * https://www.youtube.com/user/MrQwerty8080/playlists?view_as=subscriber
  */
 public class DataProviderClass {
-	
-//	@DataProvider(name="JsonDataProvider")
-//	public static Object[][] getDataForPhotosApis(){
-//		
-//		Object data[][] = new Object[4][1];
-//		
-//		data[0][0]=new TestDataBaseClass();	
-//		data[1][0]=new TestDataBaseClass();
-//		data[2][0]=new TestDataBaseClass();
-//		data[3][0]=new TestDataBaseClass();
-//		
-//		return data;
-//	}
-	
-	
-	
-	
-	//*********************************************** Set1 Data : Type 1 *******************************************************************//
-	@DataProvider(name="PhotoApiObjSet1")
-	public static Object[] getPhotosAPIDataSet1Obj(){
+
+	/**
+	 * Row 1 Data(Type 1)
+	 * 
+	 * This will read only first row from testdata.json
+	 */
+	@DataProvider(name = "PhotoApiObjSet1")
+	public static Object[] getPhotosAPIDataSet1Obj() {
 		Object data[] = new Object[3];
 		List<TestDataForSinglePhotoApi> list = PopulateTestCasesPOJOs.getSinglePhotoDataSet1();
 		TestDataForSinglePhotoApi case1 = list.get(0);
@@ -42,36 +30,33 @@ public class DataProviderClass {
 		data[0] = case1;
 		data[1] = list.get(1);
 		data[2] = list.get(2);
-		
+
 		return data;
 	}
 
-	
-	//*********************************************** Set1 Data : Type 2 *******************************************************************//
-	@DataProvider(name="PhotoApiSet1")
-	public static Object[][] getPhotosAPIDataSet1(){
-		
+	// Duplicate of above method (Type 2)
+	@DataProvider(name = "PhotoApiSet1")
+	public static Object[][] getPhotosAPIDataSet1() {
+
 		Object data[][] = new Object[3][3];
-		data[0][0]= PopulateTestCasesPOJOs.getSinglePhotoDataSet1().get(0).getTestCaseName();
-		data[0][1]= PopulateTestCasesPOJOs.getSinglePhotoDataSet1().get(0).getPhotoId();
-		data[0][2]= PopulateTestCasesPOJOs.getSinglePhotoDataSet1().get(0).getCategory();
-		
-		data[1][0]= PopulateTestCasesPOJOs.getSinglePhotoDataSet1().get(1).getTestCaseName();
-		data[1][1]= PopulateTestCasesPOJOs.getSinglePhotoDataSet1().get(1).getPhotoId();
-		data[1][2]= PopulateTestCasesPOJOs.getSinglePhotoDataSet1().get(1).getCategory();
+		data[0][0] = PopulateTestCasesPOJOs.getSinglePhotoDataSet1().get(0).getTestCaseName();
+		data[0][1] = PopulateTestCasesPOJOs.getSinglePhotoDataSet1().get(0).getPhotoId();
+		data[0][2] = PopulateTestCasesPOJOs.getSinglePhotoDataSet1().get(0).getCategory();
 
-		data[2][0]= PopulateTestCasesPOJOs.getSinglePhotoDataSet1().get(2).getTestCaseName();
-		data[2][1]= PopulateTestCasesPOJOs.getSinglePhotoDataSet1().get(2).getPhotoId();
-		data[2][2]= PopulateTestCasesPOJOs.getSinglePhotoDataSet1().get(2).getCategory();
+		data[1][0] = PopulateTestCasesPOJOs.getSinglePhotoDataSet1().get(1).getTestCaseName();
+		data[1][1] = PopulateTestCasesPOJOs.getSinglePhotoDataSet1().get(1).getPhotoId();
+		data[1][2] = PopulateTestCasesPOJOs.getSinglePhotoDataSet1().get(1).getCategory();
+
+		data[2][0] = PopulateTestCasesPOJOs.getSinglePhotoDataSet1().get(2).getTestCaseName();
+		data[2][1] = PopulateTestCasesPOJOs.getSinglePhotoDataSet1().get(2).getPhotoId();
+		data[2][2] = PopulateTestCasesPOJOs.getSinglePhotoDataSet1().get(2).getCategory();
 
 		return data;
 	}
 
-	
-	
-	
 	/**
-	 *  Set 2 : It has only two entry in testdata.json
+	 * Row 2 Data It will read second row from testdata.json, as second row has only
+	 * two key val pair hence will create array with size two
 	 */
 	@DataProvider(name = "PhotoApiObjSet2")
 	public static Object[] getPhotosAPIDataSet2Obj() {
@@ -81,13 +66,9 @@ public class DataProviderClass {
 		data[1] = list.get(1);
 		return data;
 	}
-	
-	
-	
-	
+
 	/**
-	 *  Set 3 : It has only two entry in testdata.json
-	 *  And it is related to Album Data
+	 * Row 3 Data It is related to Album Data
 	 */
 	@DataProvider(name = "AlbumApiObjSet1")
 	public static Object[] getAlbumAPIDataSet1Obj() {
@@ -97,5 +78,5 @@ public class DataProviderClass {
 		data[1] = list.get(1);
 		return data;
 	}
-	
+
 }

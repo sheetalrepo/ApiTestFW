@@ -1,4 +1,4 @@
-package com.response.pojos;
+package com.pojos;
 
 import java.util.List;
 
@@ -7,6 +7,8 @@ import java.util.List;
  * http://jsonplaceholder.typicode.com/photos
  * 
  * POJOs required to have actual representations of our particular API's response
+ * 
+ * @author Sheetal Singh
  */
 public class AllPhotos {
 

@@ -5,6 +5,9 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 
 import java.io.File;
 
+/**
+ * @author Sheetal Singh
+ */
 public class PropertyFileReader {
 
 	public static PropertyFilePojos getPropertyData() {
@@ -17,7 +20,6 @@ public class PropertyFileReader {
 			e.printStackTrace();
 		}
 
-		//System.out.println(property.getApis());
 		return property;
 	}
 

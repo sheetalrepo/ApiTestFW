@@ -6,8 +6,9 @@ import com.google.gson.annotations.SerializedName;
 /**
  * This class represent third test data row in input JSON TestData.json
  * 
- * Note: These POJOs are respective to single data row in TestData.json. Hence for every data row,
- *  there will be a new POJOs. Hence these POJOs can be in hundreds
+ * Note: These POJOs are respective to single data row in TestData.json. Hence
+ * for every data row, there will be a new POJOs. Hence these POJOs can be in
+ * hundreds
  */
 public class VerifySingleAlbum1 {
 

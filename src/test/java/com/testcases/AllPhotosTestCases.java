@@ -9,9 +9,12 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.businesslayer.AllPhotosBusinessLogic;
-import com.response.pojos.AllPhotos;
-import com.response.pojos.SinglePhoto;
+import com.pojos.AllPhotos;
+import com.pojos.SinglePhoto;
 
+/**
+ * @author Sheetal Singh
+ */
 public class AllPhotosTestCases {
 
 	@Test

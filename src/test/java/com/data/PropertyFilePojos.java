@@ -2,6 +2,9 @@ package com.data;
 
 import java.util.Map;
 
+/**
+ * @author Sheetal Singh
+ */
 public class PropertyFilePojos {
 
 	private Map<String, String> apis;

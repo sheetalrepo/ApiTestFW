@@ -1,10 +1,12 @@
-package com.response.pojos;
+package com.pojos;
 
 /**
  * POJOs for API Response   http://<domain>/photos/<id>
  * e.g. http://jsonplaceholder.typicode.com/photos/10
  * 
  * POJOs required to have actual representations of our particular API's response
+ * 
+ * @author Sheetal Singh
  */
 public class SinglePhoto {
 
