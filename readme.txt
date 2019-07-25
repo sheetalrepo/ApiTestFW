@@ -1,4 +1,4 @@
-# API Framework:
+# API Framework: <brach: master_fw_multdp_singlejson>
 1. Framework support GET request as of now. However can be enhanced for other request.
 2. All the test data for different type of APIs are kept under single json TestData.json (src/test/resources)
 3. For every data row in TestData.json, we have a separate Data Provider (src/test/java/com/data)
