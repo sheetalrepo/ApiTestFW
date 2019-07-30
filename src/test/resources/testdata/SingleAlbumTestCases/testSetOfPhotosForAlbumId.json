@@ -1,0 +1,12 @@
+{
+	"Data": [
+		{
+			"albumId": "10",
+			"category": "smoke"
+		},
+		{
+			"albumId": "11",
+			"category": "regression"
+		}
+	]
+}

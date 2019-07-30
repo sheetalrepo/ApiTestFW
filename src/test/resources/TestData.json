@@ -1,5 +1,0 @@
-{
-	"VerifySinglePhoto1" : [{ "photoId":"1", "category":"smoke" } , { "photoId":"2", "category":"regression"}, { "photoId":"3", "category":"regression"}],
-	"VerifySinglePhoto2" : [{ "photoId":"210", "category":"smoke" } , { "photoId":"220", "category":"regression"}],
-	"VerifySingleAlbum1" : [{ "albumId":"10", "category":"smoke" } , { "albumId":"11", "category":"regression"}]
-}

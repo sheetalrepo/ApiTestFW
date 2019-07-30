@@ -1,16 +1,18 @@
 # API Framework:
 1. Framework support GET request as of now. However can be enhanced for other request.
-2. All the test data for different type of APIs are kept under single json TestData.json (src/test/resources)
-3. For every data row in TestData.json, we have a separate Data Provider (src/test/java/com/data)
-4. Test Data is kept in a JSON file rather excel, csv etc
+2. All the test data for different type of APIs are kept according to Test Class Name and Method Name under (src\test\resources\testdata)
+3. For every API we have separate Data Provider
+4. For one API, single data provider will be there. 
+5. For every @Test method we have different json for to pass test data. This is done so that data is human readable. Else huge json data become non human readable.
+6. Test Data is kept in a JSON file rather excel, csv etc
 
 
 ## Advantages ##
 1. Its a properly layered framework means every layer has its own functionalities 
 
-	#Data Layer (src/test/java/data)
-		a. Data layer will read json, convert it into different POJOs (src/test/java/data/json/VerifyXXX.java).
-		b. Further multiple POJOs get converted into fewer APIs POJOs (src/test/java/data/pojos/TestDataForXXX.java) 
+	#Data Layer (src/test/java/com/data)
+		a. Data layer will read respective json, convert it into respective POJOs (src/test/java/com/data/json/JsonTestDataForAPIX.java).
+		b. Further JsonTestDataForAPIX POJOs get converted as List<JsonTestDataForAPIX> into CompleteJsonTestDataForAPIX POJOs (src/test/java/com/data/json/CompleteJsonTestDataForAPIX.java) 
 
 
 	#Business Layer (src/test/java/com/businesslayer)
@@ -26,9 +28,7 @@
 
 
 ## Disadvantages ##
-1. We have multiple single DataProvider for every data row. In case data grows then Data Provider methods will also grow.
-2. All test data for all APIs are kept under single json. If we have lot of data, multiple columns, and huge data from POST req
-  then JSON view will become complicated
+We have one DataProvider for one API. In case API grows then Data Provider methods will also grow. But generally we don't have too many APIs to test.
 
 
 

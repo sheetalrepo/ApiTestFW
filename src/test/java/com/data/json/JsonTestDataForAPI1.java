@@ -3,19 +3,18 @@ package com.data.json;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+
 /**
- * This class represent first test data row in input JSON TestData.json
+ * This POJO is representation of our test data for API1 i.e. Single Photo API
  * 
- * Note: These POJOs are respective to single data row in TestData.json. Hence
- * for every data row, there will be a new POJOs. Hence these POJOs can be in
- * hundreds
- * 
+ * @author Sheetal Singh
  */
-public class VerifySinglePhoto1 {
+public class JsonTestDataForAPI1 {
 
 	@SerializedName("photoId")
 	@Expose
 	private String photoId;
+
 	@SerializedName("category")
 	@Expose
 	private String category;
@@ -38,7 +37,7 @@ public class VerifySinglePhoto1 {
 
 	@Override
 	public String toString() {
-		return "VerifySinglePhoto1 [photoId=" + photoId + ", category=" + category + "]";
+		return "VerifyAPI1 [photoId=" + photoId + ", category=" + category + "]";
 	}
 
 }

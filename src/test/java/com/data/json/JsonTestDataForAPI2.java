@@ -4,23 +4,26 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * This class represent second test data row in input JSON TestData.json
+ * This POJO is representation of our test data for API2 i.e. Album API
+ * 
+ * @author Sheetal Singh
  */
-public class VerifySinglePhoto2 {
+public class JsonTestDataForAPI2 {
 
-	@SerializedName("photoId")
+	@SerializedName("albumId")
 	@Expose
-	private String photoId;
+	private String albumId;
+
 	@SerializedName("category")
 	@Expose
 	private String category;
 
-	public String getPhotoId() {
-		return photoId;
+	public String getAlbumId() {
+		return albumId;
 	}
 
-	public void setPhotoId(String photoId) {
-		this.photoId = photoId;
+	public void setAlbumId(String albumId) {
+		this.albumId = albumId;
 	}
 
 	public String getCategory() {
@@ -33,7 +36,7 @@ public class VerifySinglePhoto2 {
 
 	@Override
 	public String toString() {
-		return "VerifySinglePhoto2 [photoId=" + photoId + ", category=" + category + "]";
+		return "VerifyAPI2 [albumId=" + albumId + ", category=" + category + "]";
 	}
 
 }
