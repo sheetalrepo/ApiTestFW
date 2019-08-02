@@ -1,0 +1,4 @@
+YamlTestDataForAPI1: 
+    - {photoId: "11", category: "smoke"}
+    - {photoId: "12", category: "regression"}
+    - {photoId: "13", category: "regression"}

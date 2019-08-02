@@ -1,5 +1,7 @@
 package com.data;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
@@ -7,11 +9,16 @@ import java.lang.reflect.Method;
 import java.util.Iterator;
 import java.util.List;
 import org.testng.annotations.DataProvider;
+import org.yaml.snakeyaml.Yaml;
+
 import com.data.json.CompleteJsonTestDataForAPI1;
 import com.data.json.CompleteJsonTestDataForAPI2;
 import com.data.json.JsonTestDataForAPI1;
 import com.data.json.JsonTestDataForAPI2;
+import com.data.json.YamlTestDataBaseClassForAPI1;
+import com.data.json.YamlTestDataForAPI1;
 import com.google.gson.Gson;
+
 
 /**
  * In this design for every @test method we have different json with same name
@@ -35,7 +42,8 @@ public class DataProviderClass {
 		String methodName = method.getName().split("_")[1]; // fetch method name
 		System.out.println("MethodName:" + methodName);
 
-		String jsonPath = ".\\src\\test\\resources\\testdata\\" + className + "\\" + methodName + ".json";
+		//String jsonPath = ".\\src\\test\\resources\\testdata\\" + className + "\\" + methodName + ".json";
+		String jsonPath = ".\\src\\test\\resources\\testdata\\" + className + "\\" + methodName + ".yaml";
 		return jsonPath;
 	}
 
@@ -56,6 +64,20 @@ public class DataProviderClass {
 		}
 		return jsonTestData;
 	}
+	
+	
+	public static YamlTestDataBaseClassForAPI1 fetchYamlIntoPojos1(String yamlPath) {
+
+		Yaml yaml = new Yaml();
+		YamlTestDataBaseClassForAPI1 yamlTestDataBaseClassForAPI1 = null; 
+		try {
+			yamlTestDataBaseClassForAPI1 = yaml.loadAs(new FileReader(new File(yamlPath)), YamlTestDataBaseClassForAPI1.class);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		return yamlTestDataBaseClassForAPI1;
+	}
+
 
 	/**
 	 * Same as above, its for API2 - Album API
@@ -90,6 +112,22 @@ public class DataProviderClass {
 
 	}
 
+	
+	/**
+	 * API1 (Single Photo) Data Provider
+	 */
+	@DataProvider(name = "YamlInfinity1")
+	public static Iterator<YamlTestDataForAPI1> getYamlInfinityData1(Method method) {
+
+		String yamlPath = getJsonFilePath(method);
+		System.out.println("### YAML Path 1: " + yamlPath);
+		
+		YamlTestDataBaseClassForAPI1 yamlTestDataBaseClassForAPI1 =  fetchYamlIntoPojos1(yamlPath);
+		
+		List<YamlTestDataForAPI1> listOfData = yamlTestDataBaseClassForAPI1.getYmlTestDataForAPI1();
+		return listOfData.iterator();
+
+	}
 	
 	/**
 	 * API2 (Album) Data Provider
