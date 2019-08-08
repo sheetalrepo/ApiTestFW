@@ -1,3 +1,9 @@
+#todo:
+update all comments
+update FW structure in .drawio file
+update readme
+
+
 # API Framework: YAML
 1. Framework support GET request as of now. However can be enhanced for other request.
 2. All the test data for different type of APIs are kept according to Test Class Name and Method Name under (src\test\resources\testdata)

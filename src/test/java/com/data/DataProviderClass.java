@@ -3,37 +3,29 @@ package com.data;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
-import java.io.Reader;
 import java.lang.reflect.Method;
 import java.util.Iterator;
 import java.util.List;
 import org.testng.annotations.DataProvider;
 import org.yaml.snakeyaml.Yaml;
-
-import com.data.json.CompleteJsonTestDataForAPI1;
-import com.data.json.CompleteJsonTestDataForAPI2;
-import com.data.json.JsonTestDataForAPI1;
-import com.data.json.JsonTestDataForAPI2;
-import com.data.json.YamlTestDataBaseClassForAPI1;
-import com.data.json.YamlTestDataForAPI1;
-import com.google.gson.Gson;
+import com.data.yaml.YamlTestDataBaseClassForAPI1;
+import com.data.yaml.YamlTestDataBaseClassForAPI2;
+import com.data.yaml.YamlTestDataForAPI1;
+import com.data.yaml.YamlTestDataForAPI2;
 
 
 /**
- * In this design for every @test method we have different json with same name
- * On runtime we fetch json data using Reflection
- * Json read as JsonTestDataForAPIX pojo and later converted into JSONTestDataAPIX
- * Iterator of JsonTestDataForAPI1X class sent to @test method
+ * In this design for every @test method we have different api with same name
+ * On runtime we fetch api data using Reflection
  * 
  * @author Sheetal Singh (https://www.youtube.com/user/MrQwerty8080/playlists?view_as=subscriber)
  */
 public class DataProviderClass {
 
 	/**
-	 * This method will return dynamic JSON path as per class and test case name
+	 * This method will return dynamic test data file path as per class and test case name
 	 */
-	private static String getJsonFilePath(Method method) {
+	private static String getTestDataFilePath(Method method) {
 		// Fetch ClassName
 		String className = method.getName().split("_")[0]; // fetch class name
 		System.out.println("ClassName:" + className);
@@ -42,32 +34,17 @@ public class DataProviderClass {
 		String methodName = method.getName().split("_")[1]; // fetch method name
 		System.out.println("MethodName:" + methodName);
 
-		//String jsonPath = ".\\src\\test\\resources\\testdata\\" + className + "\\" + methodName + ".json";
 		String jsonPath = ".\\src\\test\\resources\\testdata\\" + className + "\\" + methodName + ".yaml";
 		return jsonPath;
 	}
+	
+	
+	//-----------------------------------------------  API1  ----------------------------------------------------------------------// 
 
 	/**
-	 * This method will read respective json and convert it into respective POJO
-	 * 
-	 * Note: For every new API this method will be different
-	 * This is for API 1 i.e. Single Photo API
+	 *  Yaml Reader For API1
 	 */
-	public static CompleteJsonTestDataForAPI1 fetchJSONIntoPojos1(String jsonPath) {
-		Gson gson = new Gson();
-		CompleteJsonTestDataForAPI1 jsonTestData = null;
-
-		try (Reader reader = new FileReader(jsonPath)) {
-			jsonTestData = gson.fromJson(reader, CompleteJsonTestDataForAPI1.class);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return jsonTestData;
-	}
-	
-	
 	public static YamlTestDataBaseClassForAPI1 fetchYamlIntoPojos1(String yamlPath) {
-
 		Yaml yaml = new Yaml();
 		YamlTestDataBaseClassForAPI1 yamlTestDataBaseClassForAPI1 = null; 
 		try {
@@ -75,74 +52,63 @@ public class DataProviderClass {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
+		System.out.println(">>"+yamlTestDataBaseClassForAPI1);
 		return yamlTestDataBaseClassForAPI1;
 	}
-
-
-	/**
-	 * Same as above, its for API2 - Album API
-	 */
-	public static CompleteJsonTestDataForAPI2 fetchJSONIntoPojos2(String jsonPath) {
-		Gson gson = new Gson();
-		CompleteJsonTestDataForAPI2 jsonTestData = null;
-
-		try (Reader reader = new FileReader(jsonPath)) {
-			jsonTestData = gson.fromJson(reader, CompleteJsonTestDataForAPI2.class);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-		return jsonTestData;
-	}
-
+	
 	
 	/**
 	 * API1 (Single Photo) Data Provider
 	 */
-	@DataProvider(name = "Infinity1")
-	public static Iterator<JsonTestDataForAPI1> getInfinityData1(Method method) {
-
-		String jsonPath = getJsonFilePath(method);
-		System.out.println("### JSON Path 1: " + jsonPath);
-
-		CompleteJsonTestDataForAPI1 jsonDataForAPI1 = fetchJSONIntoPojos1(jsonPath);
-
-		List<JsonTestDataForAPI1> listOfData = jsonDataForAPI1.getData();
-		return listOfData.iterator();
-
-	}
-
-	
-	/**
-	 * API1 (Single Photo) Data Provider
-	 */
-	@DataProvider(name = "YamlInfinity1")
+	@DataProvider(name = "YamlInfinityAPI1")
 	public static Iterator<YamlTestDataForAPI1> getYamlInfinityData1(Method method) {
 
-		String yamlPath = getJsonFilePath(method);
+		String yamlPath = getTestDataFilePath(method);
 		System.out.println("### YAML Path 1: " + yamlPath);
 		
 		YamlTestDataBaseClassForAPI1 yamlTestDataBaseClassForAPI1 =  fetchYamlIntoPojos1(yamlPath);
 		
-		List<YamlTestDataForAPI1> listOfData = yamlTestDataBaseClassForAPI1.getYmlTestDataForAPI1();
+		List<YamlTestDataForAPI1> listOfData = yamlTestDataBaseClassForAPI1.getYamlTestDataForAPI1();
 		return listOfData.iterator();
-
 	}
 	
+	
+	
+	
+	
+	
+	
+	
+	//-----------------------------------------------  API2  ----------------------------------------------------------------------//	
 	/**
-	 * API2 (Album) Data Provider
+	 *  Yaml Reader For API2
 	 */
-	@DataProvider(name = "Infinity2")
-	public static Iterator<JsonTestDataForAPI2> getInfinityData2(Method method) {
-
-		String jsonPath = getJsonFilePath(method);
-		System.out.println("### JSON Path 2: " + jsonPath);
-
-		CompleteJsonTestDataForAPI2 jsonDataForAPI2 = fetchJSONIntoPojos2(jsonPath);
-
-		List<JsonTestDataForAPI2> listOfData = jsonDataForAPI2.getData();
-		return listOfData.iterator();
-
+	public static YamlTestDataBaseClassForAPI2 fetchYamlIntoPojos2(String yamlPath) {
+		Yaml yaml = new Yaml();
+		YamlTestDataBaseClassForAPI2 yamlTestDataBaseClassForAPI2 = null; 
+		try {
+			yamlTestDataBaseClassForAPI2 = yaml.loadAs(new FileReader(new File(yamlPath)), YamlTestDataBaseClassForAPI2.class);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		System.out.println(">>"+yamlTestDataBaseClassForAPI2);
+		return yamlTestDataBaseClassForAPI2;
 	}
+	
+	
+	/**
+	 * API2 (Single Album) Data Provider
+	 */
+	@DataProvider(name = "YamlInfinityAPI2")
+	public static Iterator<YamlTestDataForAPI2> getYamlInfinityData2(Method method) {
 
+		String yamlPath = getTestDataFilePath(method);
+		System.out.println("### YAML Path 1: " + yamlPath);
+		
+		YamlTestDataBaseClassForAPI2 yamlTestDataBaseClassForAPI2 =  fetchYamlIntoPojos2(yamlPath);
+		
+		List<YamlTestDataForAPI2> listOfData = yamlTestDataBaseClassForAPI2.getYamlTestDataForAPI2();
+		return listOfData.iterator();
+	}
+	
 }

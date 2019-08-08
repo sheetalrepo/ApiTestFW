@@ -1,0 +1,3 @@
+yamlTestDataForAPI2: 
+  - {albumId: "10", category: "smoke"}
+  - {albumId: "11", category: "regression"}

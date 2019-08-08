@@ -1,4 +1,4 @@
-YamlTestDataForAPI1: 
-    - {photoId: "11", category: "smoke"}
-    - {photoId: "12", category: "regression"}
-    - {photoId: "13", category: "regression"}
+yamlTestDataForAPI1: 
+  - {photoId: "21", category: "smoke"}
+  - {photoId: "22", category: "regression"}
+  - {photoId: "23", category: "regression"}
