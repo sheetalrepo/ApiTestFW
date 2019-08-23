@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="TestA" parallel="false">
+
+	<test name="A">
+		<classes>
+			<class name="com.testcases.SinglePhotosTestCases" />
+			<class name="com.testcases.SingleAlbumTestCases" />
+			<class name="com.testcases.AllPhotosTestCases" />
+		</classes>
+	</test>
+
+</suite>

@@ -22,7 +22,7 @@ import com.data.yaml.YamlTestDataForAPI2;
  * This is used to setup initial Yaml File Format i.e. all_test_data.yaml
  * Yaml can be created manually also
  */
-public class YamlWriter {
+public class DummyYamlWriter {
 	
 	public static void main(String[] args) throws IOException {
 		Yaml yaml = new Yaml();

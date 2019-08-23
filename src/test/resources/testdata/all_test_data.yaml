@@ -1,18 +1,18 @@
 !!com.data.yaml.AllTestCaseData
 allTestCaseDataMap:
   testSinglePhotoCase1:
-  - !!com.data.yaml.YamlTestDataForAPI1 {photoId: 5, testCategory: Smoke}
-  - !!com.data.yaml.YamlTestDataForAPI1 {photoId: 6, testCategory: Regression}
-  - !!com.data.yaml.YamlTestDataForAPI1 {photoId: 7, testCategory: Regression}
+  - !!com.data.yaml.YamlTestDataForAPI1 {photoId: 5, testCategory: smoke}
+  - !!com.data.yaml.YamlTestDataForAPI1 {photoId: 6, testCategory: reg}
+  - !!com.data.yaml.YamlTestDataForAPI1 {photoId: 7, testCategory: reg}
 
   testSinglePhotoCase2:
-  - !!com.data.yaml.YamlTestDataForAPI1 {photoId: 315, testCategory: Smoke}
-  - !!com.data.yaml.YamlTestDataForAPI1 {photoId: 316, testCategory: Smoke}
+  - !!com.data.yaml.YamlTestDataForAPI1 {photoId: 315, testCategory: smoke}
+  - !!com.data.yaml.YamlTestDataForAPI1 {photoId: 316, testCategory: smoke}
   
   testSetOfPhotosForAlbumId:
-  - !!com.data.yaml.YamlTestDataForAPI2 {albumId: 10, testCategory: Smoke}
-  - !!com.data.yaml.YamlTestDataForAPI2 {albumId: 11, testCategory: Regression}
+  - !!com.data.yaml.YamlTestDataForAPI2 {albumId: 10, testCategory: smoke}
+  - !!com.data.yaml.YamlTestDataForAPI2 {albumId: 11, testCategory: reg}
 
   testListOfElementsInParticularAlbumId:
-  - !!com.data.yaml.YamlTestDataForAPI2 {albumId: 20, testCategory: Smoke}
-  - !!com.data.yaml.YamlTestDataForAPI2 {albumId: 21, testCategory: Smoke}
+  - !!com.data.yaml.YamlTestDataForAPI2 {albumId: 20, testCategory: smoke}
+  - !!com.data.yaml.YamlTestDataForAPI2 {albumId: 21, testCategory: sanity}
