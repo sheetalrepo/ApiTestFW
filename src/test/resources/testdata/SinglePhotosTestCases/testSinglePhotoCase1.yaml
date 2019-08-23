@@ -1,4 +1,0 @@
-yamlTestDataForAPI1: 
-  - {photoId: "21", category: "smoke"}
-  - {photoId: "22", category: "regression"}
-  - {photoId: "23", category: "regression"}

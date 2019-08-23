@@ -6,16 +6,18 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import java.io.File;
 
 /**
+ * This class will read the properties.yaml file
+ * 
  * @author Sheetal Singh
  */
 public class PropertyFileReader {
 
-	public static PropertyFilePojos getPropertyData() {
+	public static PropertyFilePojo getPropertyData() {
 		ObjectMapper objectMapper = new ObjectMapper(new YAMLFactory());
-		PropertyFilePojos property = null;
+		PropertyFilePojo property = null;
 		try {
 			File file = new File(".\\src\\test\\resources\\properties.yaml");
-			property = objectMapper.readValue(file, PropertyFilePojos.class);
+			property = objectMapper.readValue(file, PropertyFilePojo.class);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

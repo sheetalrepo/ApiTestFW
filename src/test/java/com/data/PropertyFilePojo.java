@@ -3,9 +3,11 @@ package com.data;
 import java.util.Map;
 
 /**
+ * This class will hold the key-value pair from properties.yaml file
+ * 
  * @author Sheetal Singh
  */
-public class PropertyFilePojos {
+public class PropertyFilePojo {
 
 	private Map<String, String> apis;
 

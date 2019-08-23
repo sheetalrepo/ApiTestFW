@@ -10,11 +10,7 @@ import org.apache.log4j.Logger;
 
 /**
  * This class contains all the test cases related to API1 i.e. SinglePhoto API
- * 
- * Method name should start with class name; separated by underscore This is to
- * get class name and to make json path which is placed in folders having same
- * structure as of classes and methods e.g.
- * /ApiTestFW/src/test/resources/testdata/className/methodName.json
+ * We are separating test cases so that they will be easy to manage
  * 
  * @author Sheetal Singh
  */
@@ -22,7 +18,7 @@ public class SinglePhotosTestCases {
 
 	private static final Logger LOGGER = Logger.getLogger(SinglePhotosTestCases.class);
 
-	@Test(dataProvider = "testData", dataProviderClass = DataProviderClass.class)
+	@Test(dataProvider = "common_test_data_provider", dataProviderClass = DataProviderClass.class)
 	public void testSinglePhotoCase1(YamlTestDataForAPI1 apitestdata) {
 		String id = apitestdata.getPhotoId();
 		SinglePhoto singlePhotoActualData = SinglePhotoBusinessLogic.getSinglePhotoDataFor(id);
@@ -34,7 +30,10 @@ public class SinglePhotosTestCases {
 		Assert.assertTrue(singlePhotoActualData.getThumbnailUrl().startsWith("https://via.placeholder.com/150/"));
 	}
 
-	@Test(dataProvider = "testData", dataProviderClass = DataProviderClass.class)
+	
+	
+	
+	@Test(dataProvider = "common_test_data_provider", dataProviderClass = DataProviderClass.class)
 	public void testSinglePhotoCase2(YamlTestDataForAPI1 apitestdata) {
 		String id = apitestdata.getPhotoId();
 		SinglePhoto singlePhotoActualData = SinglePhotoBusinessLogic.getSinglePhotoDataFor(id);

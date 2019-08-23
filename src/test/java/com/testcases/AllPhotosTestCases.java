@@ -13,6 +13,8 @@ import com.pojos.AllPhotos;
 import com.pojos.SinglePhoto;
 
 /**
+ * This class does not required data provider as we are hitting base api without any parameters
+ * 
  * @author Sheetal Singh
  */
 public class AllPhotosTestCases {

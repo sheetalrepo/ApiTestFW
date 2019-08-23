@@ -1,9 +1,0 @@
-!!com.data.AllTestCaseData
-allTestCaseDataMap:
-  testSinglePhotoCase1:
-  - !!com.data.yaml.YamlTestDataForAPI1 {category: Smoke, photoId: 10, testCategory: Smoke}
-  - !!com.data.yaml.YamlTestDataForAPI1 {category: Regression, photoId: 20, testCategory: Regression}
-
-  testSinglePhotoCase2:
-  - !!com.data.yaml.YamlTestDataForAPI1 {category: Smoke, photoId: 310, testCategory: Smoke}
-  - !!com.data.yaml.YamlTestDataForAPI1 {category: Regression, photoId: 320, testCategory: Smoke}

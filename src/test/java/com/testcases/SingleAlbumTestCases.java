@@ -1,6 +1,8 @@
 package com.testcases;
 
 import java.util.List;
+
+import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import com.businesslayer.AllPhotosBusinessLogic;
@@ -12,25 +14,28 @@ import com.pojos.SinglePhoto;
 /**
  * This class contains all the test cases related to API2 i.e. SingleAlbum API
  * 
- * Method name should start with class name; separated by underscore This is to
- * get class name and to make json path which is placed in folders having same
- * structure as of classes and methods e.g.
- * /ApiTestFW/src/test/resources/testdata/className/methodName.json
- * 
  * @author Sheetal Singh
  */
 public class SingleAlbumTestCases {
 
-	@Test(dataProvider = "YamlInfinityAPI2", dataProviderClass = DataProviderClass.class)
-	public void SingleAlbumTestCases_testSetOfPhotosForAlbumId(YamlTestDataForAPI2 apitestdata) {
+	private static final Logger LOGGER = Logger.getLogger(SingleAlbumTestCases.class);
+
+	
+	
+	@Test(dataProvider = "common_test_data_provider", dataProviderClass = DataProviderClass.class)
+	public void testSetOfPhotosForAlbumId(YamlTestDataForAPI2 apitestdata) {
 		String albumId = apitestdata.getAlbumId();
 		AllPhotos allPhotosForAlbumId = AllPhotosBusinessLogic.getAllPhotosForAlbumId(albumId);
+		LOGGER.info(allPhotosForAlbumId);
+
 		List<SinglePhoto> allPhotosList = allPhotosForAlbumId.getListOfPhotos();
 		Assert.assertEquals(allPhotosList.size(), 50);
 	}
 
-	@Test(dataProvider = "YamlInfinityAPI2", dataProviderClass = DataProviderClass.class)
-	public void SingleAlbumTestCases_testListOfElementsInParticularAlbumId(YamlTestDataForAPI2 apitestdata) {
+	
+	
+	@Test(dataProvider = "common_test_data_provider", dataProviderClass = DataProviderClass.class)
+	public void testListOfElementsInParticularAlbumId(YamlTestDataForAPI2 apitestdata) {
 		List<String> listOfAlbumIds = AllPhotosBusinessLogic.getListOfElementsFromAlbumId(apitestdata.getAlbumId(),"id");
 		Assert.assertEquals(listOfAlbumIds.size(), 50);
 
