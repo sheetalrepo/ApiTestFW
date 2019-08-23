@@ -1,24 +1,17 @@
-#todo:
-update all comments
-update FW structure in .drawio file
-update readme
-
-
-# API Framework: YAML
+# API Framework: YAML (Different Data Provider for Diff APIs)
 1. Framework support GET request as of now. However can be enhanced for other request.
 2. All the test data for different type of APIs are kept according to Test Class Name and Method Name under (src\test\resources\testdata)
 3. For every API we have separate Data Provider
-4. For one API, single data provider will be there. 
-5. For every @Test method we have different json for to pass test data. This is done so that data is human readable. Else huge json data become non human readable.
-6. Test Data is kept in a JSON file rather excel, csv etc
+4. For every @Test method we have different yaml
+5. Test Data is kept in a YAML file rather json, excel, csv etc
 
 
 ## Advantages ##
 1. Its a properly layered framework means every layer has its own functionalities 
 
 	#Data Layer (src/test/java/com/data)
-		a. Data layer will read respective json, convert it into respective POJOs (src/test/java/com/data/json/JsonTestDataForAPIX.java).
-		b. Further JsonTestDataForAPIX POJOs get converted as List<JsonTestDataForAPIX> into CompleteJsonTestDataForAPIX POJOs (src/test/java/com/data/json/CompleteJsonTestDataForAPIX.java) 
+		a. Data layer will read respective yaml, convert it into respective POJOs (src/test/java/com/data/yaml/YamlTestDataForAPIX.java).
+		b. Further YamlTestDataForAPIX POJOs get converted as List<YamlTestDataForAPIX> into YamlTestDataBaseClassForAPIX POJOs 
 
 
 	#Business Layer (src/test/java/com/businesslayer)
@@ -29,19 +22,17 @@ update readme
 		a. Will get data from Data Provider, Call Business Layer for operation and perform Assertions
 	
 
-2. Data is getting picked from JSON rather excel. Make sure data is kept either in JSON, YAML or CSV but never in excel
+2. Data is getting picked from YAML rather excel. Make sure data is kept either in JSON, YAML or CSV but never in excel
 3. Logger has been implemented and logs can be taken from /target/output.log
 
 
 ## Disadvantages ##
-We have one DataProvider for one API. In case API grows then Data Provider methods will also grow. But generally we don't have too many APIs to test.
-
+We have one DataProvider for one API. In case API grows then Data Provider methods will also grow.
 
 
 #TODOs
 a. POST request implementation
 b. single data provider for all the data
-c. YAML can be implemented rather JSON for big data
 
 
 #Test APIs
