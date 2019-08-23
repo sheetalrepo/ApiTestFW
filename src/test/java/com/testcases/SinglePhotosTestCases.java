@@ -22,8 +22,8 @@ public class SinglePhotosTestCases {
 
 	private static final Logger LOGGER = Logger.getLogger(SinglePhotosTestCases.class);
 
-	@Test(dataProvider = "YamlInfinityAPI1", dataProviderClass = DataProviderClass.class)
-	public void SinglePhotosTestCases_testSinglePhotoCase1(YamlTestDataForAPI1 apitestdata) {
+	@Test(dataProvider = "testData", dataProviderClass = DataProviderClass.class)
+	public void testSinglePhotoCase1(YamlTestDataForAPI1 apitestdata) {
 		String id = apitestdata.getPhotoId();
 		SinglePhoto singlePhotoActualData = SinglePhotoBusinessLogic.getSinglePhotoDataFor(id);
 		LOGGER.info(singlePhotoActualData);
@@ -34,8 +34,8 @@ public class SinglePhotosTestCases {
 		Assert.assertTrue(singlePhotoActualData.getThumbnailUrl().startsWith("https://via.placeholder.com/150/"));
 	}
 
-	@Test(dataProvider = "YamlInfinityAPI1", dataProviderClass = DataProviderClass.class)
-	public void SinglePhotosTestCases_testSinglePhotoCase2(YamlTestDataForAPI1 apitestdata) {
+	@Test(dataProvider = "testData", dataProviderClass = DataProviderClass.class)
+	public void testSinglePhotoCase2(YamlTestDataForAPI1 apitestdata) {
 		String id = apitestdata.getPhotoId();
 		SinglePhoto singlePhotoActualData = SinglePhotoBusinessLogic.getSinglePhotoDataFor(id);
 		LOGGER.info(singlePhotoActualData);

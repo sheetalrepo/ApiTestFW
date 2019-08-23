@@ -1,6 +1,8 @@
 package com.data.yaml;
 
-public class YamlTestDataForAPI2 {
+import com.data.TestData;
+
+public class YamlTestDataForAPI2 extends TestData {
 
 	String albumId;
 	String category;

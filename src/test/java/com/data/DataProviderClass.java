@@ -111,4 +111,30 @@ public class DataProviderClass {
 		return listOfData.iterator();
 	}
 	
+	
+	@DataProvider(name="testData")
+	public Object[][] getDataFromYamlFile(Method method)
+	{
+		Yaml yaml = new Yaml();
+		AllTestCaseData allTestCaseData = null; 
+		
+		//String yamlPath = getTestDataFilePath(method);
+		try {
+			allTestCaseData = yaml.loadAs(new FileReader(new File("TestDataInYaml.yml")), AllTestCaseData.class);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		String testCaseName = method.getName();
+		List<TestData> testDataSets = allTestCaseData.getAllTestCaseDataMap().get(testCaseName);
+		Object[][] data = new Object[testDataSets.size()][1];
+		
+		for (int i = 0; i < testDataSets.size(); i++) {
+			data[i][0] = testDataSets.get(i);
+		}
+	
+		return data;
+	}
+	
+	
 }
