@@ -12,7 +12,7 @@
 	<properties>
 		<testng.version>6.14.3</testng.version>
 		<restassured.version>4.0.0</restassured.version>
-		<jackson.version>2.9.9</jackson.version>
+		<jackson.version>2.10.3</jackson.version>
 		<commonlang.version>3.9</commonlang.version>
 		<log4j.version>1.2.17</log4j.version>
 	</properties>
