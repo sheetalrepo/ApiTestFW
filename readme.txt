@@ -1,5 +1,7 @@
 # API Framework: YAML (Single Data Provider for Diff APIs)
 
+git clone https://github.com/sheetalrepo/ApiTestFW.git
+
 1. Framework support GET request as of now. However can be enhanced for other request.
 2. All the test data for different type of APIs are kept under common Yaml file (src\test\resources\testdata)
 3. For every test cases, we have single Data Provider which is of great importance

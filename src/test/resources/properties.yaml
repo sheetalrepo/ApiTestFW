@@ -3,4 +3,4 @@ apis:
   homeurl: "http://jsonplaceholder.typicode.com"
   photos: /photos
   albumid: /photos/?albumId=
-  cases_to_be_run: reg
+  cases_to_be_run: smoke
