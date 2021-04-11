@@ -7,13 +7,14 @@ import static io.restassured.path.json.JsonPath.from;
 import java.util.Arrays;
 import java.util.List;
 
-import org.apache.log4j.Logger;
-
 import com.data.PropertyFileReader;
 import com.pojos.AllPhotos;
 import com.pojos.SinglePhoto;
 
 import io.restassured.response.Response;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * Business Layer : Sole purpose is to accept data and populate POJOs and
@@ -26,7 +27,7 @@ import io.restassured.response.Response;
  */
 public class AllPhotosBusinessLogic {
 
-	private static final Logger LOGGER = Logger.getLogger(AllPhotosBusinessLogic.class);
+	private static final Logger LOGGER = LogManager.getLogger(AllPhotosBusinessLogic.class);
 
 	/**
 	 * Fetch list of all single element nodes (like id, albumID, title, thumbnailUrl

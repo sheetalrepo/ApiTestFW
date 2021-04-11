@@ -3,7 +3,8 @@ package com.businesslayer;
 import static io.restassured.RestAssured.when;
 import static io.restassured.path.json.JsonPath.from;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import com.data.PropertyFileReader;
 import com.pojos.SinglePhoto;
@@ -19,7 +20,7 @@ import io.restassured.response.Response;
  * https://www.youtube.com/user/MrQwerty8080/playlists?view_as=subscriber
  */
 public class SinglePhotoBusinessLogic {
-	private static final Logger LOGGER = Logger.getLogger(SinglePhotoBusinessLogic.class);
+	private static final Logger LOGGER = LogManager.getLogger(SinglePhotoBusinessLogic.class);
 
 	/*
 	 * Extract data as Response object

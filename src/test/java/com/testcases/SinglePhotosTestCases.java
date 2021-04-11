@@ -6,7 +6,8 @@ import com.businesslayer.SinglePhotoBusinessLogic;
 import com.data.DataProviderClass;
 import com.data.yaml.YamlTestDataForAPI1;
 import com.pojos.SinglePhoto;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * This class contains all the test cases related to API1 i.e. SinglePhoto API
@@ -16,7 +17,7 @@ import org.apache.log4j.Logger;
  */
 public class SinglePhotosTestCases {
 
-	private static final Logger LOGGER = Logger.getLogger(SinglePhotosTestCases.class);
+	private static final Logger LOGGER = LogManager.getLogger(SinglePhotosTestCases.class);
 
 	@Test(dataProvider = "common_test_data_provider", dataProviderClass = DataProviderClass.class)
 	public void testSinglePhotoCase1(YamlTestDataForAPI1 apitestdata) {
