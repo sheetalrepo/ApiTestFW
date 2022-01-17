@@ -2,7 +2,7 @@
 
 git clone https://github.com/sheetalrepo/ApiTestFW.git
 
-1. Framework support GET request as of now. However can be enhanced for other request.
+1. Framework support GET/POST request.
 2. All the test data for different type of APIs are kept under common Yaml file (src\test\resources\testdata)
 3. For every test cases, we have single Data Provider which is of great importance
 4. Test Data is kept in a YAML file rather json, excel, csv etc. Yaml gives huge advantages over other format in terms of readability, code minimization, maintenance
@@ -36,7 +36,7 @@ git clone https://github.com/sheetalrepo/ApiTestFW.git
 #TODOs
 1. single data provider for all the data  - done
 2. running from TestNG.xml and using testCategory values - done
-3. POST request implementation - pending
+3. POST request implementation - done
 
 
 #Test APIs

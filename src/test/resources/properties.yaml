@@ -1,6 +1,8 @@
 --- 
 apis: 
-  homeurl: "http://jsonplaceholder.typicode.com"
+#  homeurl: "http://jsonplaceholder.typicode.com"
+  homeurl: "http://localhost:8080"
   photos: /photos
   albumid: /photos/?albumId=
+  authTokenApi: /v1/sso/authorization/device
   cases_to_be_run: smoke

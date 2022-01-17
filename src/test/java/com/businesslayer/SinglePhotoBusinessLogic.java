@@ -1,6 +1,7 @@
 package com.businesslayer;
 
 import static io.restassured.RestAssured.when;
+import static io.restassured.RestAssured.given;
 import static io.restassured.path.json.JsonPath.from;
 
 import org.apache.logging.log4j.LogManager;
@@ -8,7 +9,11 @@ import org.apache.logging.log4j.Logger;
 
 import com.data.PropertyFileReader;
 import com.pojos.SinglePhoto;
+
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
 
 /**
  * Business Layer : Sole purpose is to accept data and populate POJOs and

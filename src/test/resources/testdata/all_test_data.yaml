@@ -16,3 +16,6 @@ allTestCaseDataMap:
   testListOfElementsInParticularAlbumId:
   - !!com.data.yaml.YamlTestDataForAPI2 {albumId: 20, testCategory: smoke}
   - !!com.data.yaml.YamlTestDataForAPI2 {albumId: 21, testCategory: sanity}
+     
+  testAuthTokenGeneration:
+  - !!com.data.yaml.YamlTestDataForAuthTokenApi {deivceId: D555, userName: Will, xCusName: Smith, testCategory: smoke}

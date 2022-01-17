@@ -29,7 +29,6 @@ public class DataProviderClass {
 		AllTestCaseData allTestCaseData = null; 
 		String testCasePath = ".\\src\\test\\resources\\testdata\\all_test_data.yaml";
 		
-		
 		try {
 			allTestCaseData = yaml.loadAs(new FileReader(new File(testCasePath)), AllTestCaseData.class);
 		} catch (FileNotFoundException e) {
