@@ -14,7 +14,7 @@
 		<maven.compiler.target>11</maven.compiler.target>
 		<testng.version>7.4.0</testng.version>
 		<restassured.version>4.3.3</restassured.version>
-		<jackson.version>2.12.1</jackson.version>
+		<jackson.version>2.12.6.1</jackson.version>
 		<commonlang.version>3.12.0</commonlang.version>
 		<log4jcore.version>2.17.1</log4jcore.version>
 	</properties>
