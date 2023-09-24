@@ -27,10 +27,10 @@ public class DataProviderClass {
 	{
 		Yaml yaml = new Yaml();
 		AllTestCaseData allTestCaseData = null; 
-		String testCasePath = ".\\src\\test\\resources\\testdata\\all_test_data.yaml";
+		String testDataPath = ".\\src\\test\\resources\\testdata\\all_test_data.yaml";
 		
 		try {
-			allTestCaseData = yaml.loadAs(new FileReader(new File(testCasePath)), AllTestCaseData.class);
+			allTestCaseData = yaml.loadAs(new FileReader(new File(testDataPath)), AllTestCaseData.class);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
@@ -41,10 +41,13 @@ public class DataProviderClass {
 		//Filter test data based on test category to be run i.e. smoke, sanity and reg  
 		String casesToBeRun = PropertyFileReader.getPropertyData().getApis().get("cases_to_be_run");
 		System.out.println("********** CASES TO BE RUN : "+casesToBeRun+" **********");
+		
+//		testDataSets = testDataSets.stream()
+//				.filter(x -> casesToBeRun.equalsIgnoreCase(x.getTestCategory()))
+//				.collect(Collectors.toList());
 		testDataSets = testDataSets.stream()
-				.filter(x -> casesToBeRun.equalsIgnoreCase(x.getTestCategory()))
-				.collect(Collectors.toList());
-				
+				.filter(x -> x.getTestCategory().contains(casesToBeRun))
+				.collect(Collectors.toList());		
 		
 		Object[][] data = new Object[testDataSets.size()][1]; //on runtime, rows will be decided, column will always be 1 in all the cases
 		

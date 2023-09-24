@@ -43,3 +43,20 @@ git clone https://github.com/sheetalrepo/ApiTestFW.git
 http://jsonplaceholder.typicode.com/photos                  |  contains 100 albums
 http://jsonplaceholder.typicode.com/photos/?albumId=1       |  1 album have 50 ids
 http://jsonplaceholder.typicode.com/photos/1		        |  1 id have 1 title, 1 url etc
+
+
+
+#How to run
+1. Run via testng.xml
+2. Run via maven command
+   mvn clean test -DtestCategory=reg
+
+
+#Notes:
+all_test_data.yaml > testCategory: sanity#reg 
+TC can belong to multiple category like Sanity, Regression etc
+
+
+
+
+ 

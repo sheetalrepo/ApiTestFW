@@ -21,6 +21,8 @@ public class SinglePhotosTestCases {
 
 	@Test(dataProvider = "common_test_data_provider", dataProviderClass = DataProviderClass.class)
 	public void testSinglePhotoCase1(YamlTestDataForAPI1 apitestdata) {
+		System.out.println(apitestdata.getMyId());
+		
 		String id = apitestdata.getPhotoId();
 		SinglePhoto singlePhotoActualData = SinglePhotoBusinessLogic.getSinglePhotoDataFor(id);
 		LOGGER.info(singlePhotoActualData);

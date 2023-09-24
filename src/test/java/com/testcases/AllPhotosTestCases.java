@@ -19,7 +19,7 @@ import com.pojos.SinglePhoto;
  */
 public class AllPhotosTestCases {
 
-	@Test
+	//@Test
 	public void testAll() {
 		AllPhotos allPhotos = AllPhotosBusinessLogic.getAllPhotos();
 

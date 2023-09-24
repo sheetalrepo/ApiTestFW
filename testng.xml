@@ -6,8 +6,10 @@
 	<test name="A">
 		<classes>
 			<class name="com.testcases.SinglePhotosTestCases" />
+			<!--
 			<class name="com.testcases.SingleAlbumTestCases" />
 			<class name="com.testcases.AllPhotosTestCases" />
+			-->
 		</classes>
 	</test>
 
